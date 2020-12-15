@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    "jest/globals": true,
   },
   extends: ["airbnb", "prettier", "prettier/react"],
   parserOptions: {
@@ -11,7 +12,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: ["react", "prettier"],
+  plugins: ["react", "jest", "prettier"],
   rules: {
     "prettier/prettier": ["error"],
   },
