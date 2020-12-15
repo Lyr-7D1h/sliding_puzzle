@@ -1,5 +1,7 @@
 import { React } from "react";
+import PuzzleGame from "./PuzzleGame";
 
-const PuzzlePage = () => <>Puzzle Page</>;
+/** Entry point for the puzzle game */
+const PuzzlePage = () => <PuzzleGame size={9} />;
 
 export default PuzzlePage;
