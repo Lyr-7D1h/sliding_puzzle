@@ -4,7 +4,7 @@
  */
 export default (size) => {
   const result = new Array(size);
-  let count = 0;
+  let count = 1;
   while (count < size) {
     const randomIndex = Math.floor(Math.random() * size);
     // if there is no value at randomIndex set value to the next count

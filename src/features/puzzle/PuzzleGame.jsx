@@ -7,6 +7,7 @@ import generateBoard from "./generateBoard";
  */
 const PuzzleGame = ({ size }) => {
   const [board] = useState(generateBoard(size));
+  console.log(board);
 
   // eslint-disable-next-line react/no-array-index-key
   const Cards = board.map((num, i) => <p key={i}>{num}</p>);
