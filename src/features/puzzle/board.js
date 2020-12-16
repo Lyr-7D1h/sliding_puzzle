@@ -32,7 +32,6 @@ export const moveEmptySlot = (board, value) => {
   const result = [].concat(board);
   result[emptyIndex] = result[activeIndex];
   result[activeIndex] = null;
-  console.log(result);
   return result;
 };
 
@@ -49,6 +48,5 @@ export const getAdjacenedIndexes = (board) => {
   if (emptyIndex - 1 >= 0) result.push(emptyIndex - 1);
   if (emptyIndex + 1 < board.length) result.push(emptyIndex + 1);
   if (emptyIndex + root < board.length) result.push(emptyIndex + root);
-  console.log(result);
   return result;
 };

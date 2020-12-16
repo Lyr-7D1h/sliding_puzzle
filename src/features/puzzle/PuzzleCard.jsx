@@ -14,7 +14,7 @@ const PuzzleCard = ({ value, clickable, onClick }) => {
     <Card onClick={() => onClick && clickable && onClick(value)}>
       <CardContent
         style={{
-          height: "25vh",
+          height: "20vh",
           cursor: clickable ? "pointer" : "default",
           backgroundColor: hasValue ? "white" : "#333",
         }}
