@@ -29,6 +29,9 @@ export const moveEmptySlot = (board, value) => {
   const emptyIndex = board.indexOf(null);
   const activeIndex = board.indexOf(value);
 
+  if (emptyIndex === -1) throw Error("Could not find empty slot");
+  if (activeIndex === -1) throw Error("Could not find slot for given value");
+
   const result = [].concat(board);
   result[emptyIndex] = result[activeIndex];
   result[activeIndex] = null;
