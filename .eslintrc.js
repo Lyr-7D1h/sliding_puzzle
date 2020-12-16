@@ -14,6 +14,6 @@ module.exports = {
   },
   plugins: ["react", "jest", "prettier"],
   rules: {
-    "prettier/prettier": ["error"],
+    "prettier/prettier": ["warn"],
   },
 };
