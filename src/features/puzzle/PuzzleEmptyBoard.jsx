@@ -1,38 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
+// import { Grid } from "@material-ui/core";
 import PuzzleCard from "./PuzzleCard";
 
 /**
  * Display an empty board
  * @param {number} value - How big should the board be {value} x {value}
  */
-const PuzzleEmptyBoard = ({ value }) => {
-  const cardSize = Math.round(12 / value);
-  console.log(cardSize);
+const PuzzleEmptyBoard = ({ size }) => {
+  const cardSize = 100 / size;
 
   const Cards = [];
-  for (let i = 0; i < value * value; i += 1) {
+  for (let i = 0; i < size * size; i += 1) {
     Cards.push(
-      <Grid item key={i} xs={cardSize}>
-        <PuzzleCard clickable={false} value={null} />
-      </Grid>
+      <PuzzleCard
+        key={i}
+        style={{
+          width: `${cardSize}%`,
+          height: `${cardSize - (12 - 1.3 * size)}vh`, // TODO: check for a better way to calculate
+          float: "left",
+        }}
+        clickable={false}
+        value={null}
+      />
     );
   }
-  // TODO: fix array key
-  // eslint-disable-next-line react/no-array-index-key
 
-  return (
-    <>
-      <Grid container alignItems="center" justify="center">
-        {Cards}
-      </Grid>
-    </>
-  );
+  return <>{Cards}</>;
 };
 
 PuzzleEmptyBoard.propTypes = {
-  value: PropTypes.number.isRequired,
+  size: PropTypes.number.isRequired,
 };
 
 export default PuzzleEmptyBoard;

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
 import PuzzleCard from "./PuzzleCard";
 import { getAdjacenedIndexes } from "./board";
 
@@ -11,28 +10,26 @@ import { getAdjacenedIndexes } from "./board";
  */
 const PuzzleBoard = ({ board, onClick }) => {
   const adjacendIndexes = getAdjacenedIndexes(board);
+  const boardSize = Math.sqrt(board.length);
   // get root of the board for defining how big a card should be
-  const cardSize = Math.floor(12 / Math.sqrt(board.length));
+  const cardSize = 100 / boardSize;
 
   const Cards = board.map((cardValue, i) => (
-    // TODO: fix array key
-    // eslint-disable-next-line react/no-array-index-key
-    <Grid item key={i} xs={cardSize}>
-      <PuzzleCard
-        onClick={onClick}
-        clickable={adjacendIndexes.includes(i)}
-        value={cardValue}
-      />
-    </Grid>
+    <PuzzleCard
+      // eslint-disable-next-line react/no-array-index-key
+      key={i}
+      style={{
+        width: `${cardSize}%`,
+        height: `${cardSize - (12 - 1.3 * boardSize)}vh`, // TODO: check for a better way to calculate
+        float: "left",
+      }}
+      onClick={onClick}
+      clickable={adjacendIndexes.includes(i)}
+      value={cardValue}
+    />
   ));
 
-  return (
-    <>
-      <Grid container alignItems="center" justify="center">
-        {Cards}
-      </Grid>
-    </>
-  );
+  return <>{Cards}</>;
 };
 
 PuzzleBoard.propTypes = {

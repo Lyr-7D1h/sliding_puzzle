@@ -10,7 +10,6 @@ import PuzzleBoard from "./PuzzleBoard";
 const PuzzleGame = ({ size }) => {
   const [board, setBoard] = useState(generateBoard(size));
   const [moveCount, setMoveCount] = useState(0);
-  // TODO: might validate size
 
   const handleOnClick = (value) => {
     setBoard((newBoard) => moveEmptySlot(newBoard, value));
@@ -19,7 +18,7 @@ const PuzzleGame = ({ size }) => {
 
   return (
     <>
-      <Typography style={{ paddingBottom: "20px" }} variant="h3" align="center">
+      <Typography style={{ paddingBottom: "20px" }} variant="h4" align="center">
         Moves: {moveCount}
       </Typography>
       <PuzzleBoard onClick={handleOnClick} board={board} />

@@ -28,7 +28,7 @@ const PuzzleSelectAmount = ({ defaultValue, onChange, onClick }) => {
 
   const handleOnChange = (_event, newValue) => {
     setValue(newValue);
-    if (onChange) onChange(newValue * newValue);
+    if (onChange) onChange(newValue);
   };
 
   return (
@@ -44,7 +44,6 @@ const PuzzleSelectAmount = ({ defaultValue, onChange, onClick }) => {
       <Grid style={{ paddingBottom: "24px" }} container>
         <Grid xs={8} item>
           <Typography align="center" variant="h4">
-            {" "}
             {value} x {value}
           </Typography>
         </Grid>
@@ -60,7 +59,7 @@ const PuzzleSelectAmount = ({ defaultValue, onChange, onClick }) => {
           </Button>
         </Grid>
       </Grid>
-      <PuzzleEmptyBoard value={value} />
+      <PuzzleEmptyBoard size={value} />
     </>
   );
 };

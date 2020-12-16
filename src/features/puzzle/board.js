@@ -1,15 +1,16 @@
 /**
  * Create an array of `size` with non repeating random numbers and one empty slot
- * @param {number} size The size of the board
+ * @param {number} itemsCount The size of the board
  */
 export const generateBoard = (size) => {
-  const result = new Array(size);
+  const itemsCount = size * size;
+  const result = new Array(itemsCount);
   let count = 1;
-  while (count <= size) {
-    const randomIndex = Math.floor(Math.random() * size);
+  while (count <= itemsCount) {
+    const randomIndex = Math.floor(Math.random() * itemsCount);
     // if there is no value at randomIndex set value to the next count
     if (!result[randomIndex]) {
-      if (count === size) {
+      if (count === itemsCount) {
         result[randomIndex] = null;
       } else {
         result[randomIndex] = count;
@@ -44,12 +45,22 @@ export const moveEmptySlot = (board, value) => {
  */
 export const getAdjacenedIndexes = (board) => {
   const emptyIndex = board.indexOf(null);
-  const root = Math.sqrt(board.length);
+  const boardRoot = Math.sqrt(board.length);
 
   const result = [];
-  if (emptyIndex - root >= 0) result.push(emptyIndex - root);
-  if (emptyIndex - 1 >= 0) result.push(emptyIndex - 1);
-  if (emptyIndex + 1 < board.length) result.push(emptyIndex + 1);
-  if (emptyIndex + root < board.length) result.push(emptyIndex + root);
+
+  // Top: can't be less than 0
+  if (emptyIndex - boardRoot >= 0) result.push(emptyIndex - boardRoot);
+  // Left: can't be on the next row
+  // if emptyIndex starting from 1 - 1 is against left side (% boardRoot) ignore
+  if (emptyIndex - 1 >= 0 && (emptyIndex + 1 - 1) % boardRoot !== 0)
+    result.push(emptyIndex - 1);
+  // Right: can't be on the next row
+  // if emptyIndex starting from 1 against right side (% boardRoot) ignore
+  if (emptyIndex + 1 < board.length && (emptyIndex + 1) % boardRoot !== 0)
+    result.push(emptyIndex + 1);
+  // Bottom: can't be bigger than board length
+  if (emptyIndex + boardRoot < board.length)
+    result.push(emptyIndex + boardRoot);
   return result;
 };

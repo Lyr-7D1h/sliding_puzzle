@@ -7,8 +7,8 @@ const defaultValue = 3;
 
 /** Entry point for the puzzle game */
 const PuzzlePage = () => {
-  // size defined as the total size of the board
-  const [size, setSize] = useState(defaultValue * defaultValue);
+  // size defined as the length of one side of the board
+  const [size, setSize] = useState(defaultValue);
   const [hasStarted, setHasStarted] = useState(false);
 
   let Content;
