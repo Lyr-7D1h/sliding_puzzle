@@ -11,16 +11,28 @@ import PropTypes from "prop-types";
 const PuzzleCard = ({ value, clickable, onClick }) => {
   const hasValue = value !== null;
   return (
-    <Card onClick={() => onClick && clickable && onClick(value)}>
+    <Card
+      style={{ borderRadius: "0px", border: "1px solid #888" }}
+      onClick={() => onClick && clickable && onClick(value)}
+    >
       <CardContent
         style={{
           height: "20vh",
           cursor: clickable ? "pointer" : "default",
-          backgroundColor: hasValue ? "white" : "#333",
+          backgroundColor: hasValue ? "white" : "#888",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         {hasValue && (
-          <Typography variant="h3" align="center">
+          <Typography
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+            }}
+            variant="h3"
+            align="center"
+          >
             {value}
           </Typography>
         )}
