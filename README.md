@@ -13,7 +13,8 @@ Eslint check for general linting errors while prettier focuses on formating.
 Eslint uses the Airbnb standard, generally assumed to be the best for React projects.
 
 **Material UI** is used for styling.
-This is because I wanted consistent styling between all components and don't want to have the hassle to worry about styling.
+It is one of the most mature UI libraries out there and has pretty good mobile support.
+I also wanted consistent styling between all components and don't want to deal with styling myself.
 
 **Jest** is used as test runner.
 Most recommended and usefull test runner for React Applications.
