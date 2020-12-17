@@ -13,7 +13,6 @@ const PuzzlePage = () => {
 
   let Content;
   if (hasStarted) {
-    console.log(size);
     Content = <PuzzleGame size={size} />;
   } else {
     Content = (
