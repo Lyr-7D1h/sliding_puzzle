@@ -1,5 +1,7 @@
 # Build
-FROM node:latest-alphine
+
+# Using LTS Node version
+FROM node:14-alpine
 
 WORKDIR /usr/src/app
 
@@ -12,7 +14,7 @@ RUN yarn build
 # Expose 
 FROM nginx:stable-alpine
 
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY --from=0 /usr/src/app/build /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sliding_puzzle
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sliding_puzzle
+  template:
+    metadata:
+      labels:
+        app: sliding_puzzle
+    spec:
+      containers:
+        - name: sliding_puzzle
+          image: lyr7d1h/sliding_puzzle:latest
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "200Mi"
+              cpu: "1"
