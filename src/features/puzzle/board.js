@@ -145,7 +145,24 @@ export const getAdjacenedIndexes = (board) => {
   return result;
 };
 
-export const calculateScore = (board, movesCount) => ({
-  board,
-  movesCount,
-});
+// Calculated by taking the avarage upper bound of optimal solutions
+// https://en.wikipedia.org/wiki/15_puzzle#Solvability
+const magicGrowthNumber = (205 / 80 + 80 / 31) / 2;
+// The optimal solution for a size of 1
+const startCount = 31 / magicGrowthNumber / magicGrowthNumber;
+
+/**
+ * Calculate a score out of 1000 using the average optimal solution
+ * @param {number} size - Size of the board
+ * @param {number} movesCount - How many moves were made
+ */
+export const calculateScore = (size, movesCount) => {
+  const upperBound = startCount * magicGrowthNumber ** (size - 1);
+
+  let score = Math.round((upperBound / movesCount) * 1000);
+
+  // Make sure maximum is 1000
+  if (score > 1000) score = 1000;
+
+  return score;
+};

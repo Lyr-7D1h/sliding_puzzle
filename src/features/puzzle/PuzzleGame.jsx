@@ -6,17 +6,18 @@ import PuzzleBoard from "./PuzzleBoard";
 
 /** The main logical component for controlling the puzzle game
  * @param {number} size - The size of the playing field
- * @param {function} onFinish - If won this function gets called with board and moveCount as arguments
+ * @param {function} onFinish - If won this function gets called with moveCount as argument
  */
 const PuzzleGame = ({ size, onFinish }) => {
   const [board, setBoard] = useState(generateBoard(size));
   const [moveCount, setMoveCount] = useState(0);
 
   const handleOnClick = (value) => {
-    setBoard((newBoard) => moveEmptySlot(newBoard, value));
+    const newBoard = moveEmptySlot(board, value);
+    setBoard(newBoard);
     setMoveCount((count) => count + 1);
-    if (hasWon(board)) {
-      if (onFinish) onFinish(board, moveCount);
+    if (hasWon(newBoard)) {
+      if (onFinish) onFinish(moveCount);
     }
   };
 
