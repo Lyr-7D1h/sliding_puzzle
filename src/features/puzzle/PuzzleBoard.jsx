@@ -20,7 +20,7 @@ const PuzzleBoard = ({ board, onClick }) => {
       key={i}
       style={{
         width: `${cardSize}%`,
-        height: `${cardSize - (12 - 1.3 * boardSize)}vh`, // TODO: check for a better way to calculate
+        height: `${cardSize - (12 - 1.3 * boardSize)}vh`, // Some magic to get a decently sized board
         float: "left",
       }}
       onClick={onClick}

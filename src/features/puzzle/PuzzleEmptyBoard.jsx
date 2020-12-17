@@ -17,7 +17,7 @@ const PuzzleEmptyBoard = ({ size }) => {
         key={i}
         style={{
           width: `${cardSize}%`,
-          height: `${cardSize - (12 - 1.3 * size)}vh`, // TODO: check for a better way to calculate
+          height: `${cardSize - (12 - 1.3 * size)}vh`, // Some magic to get a decently sized board
           float: "left",
         }}
         clickable={false}
