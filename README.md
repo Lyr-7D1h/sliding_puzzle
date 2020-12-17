@@ -1,4 +1,5 @@
 # Sliding Puzzle
+![Docker Buildx](https://github.com/Lyr-7D1h/sliding_puzzle/workflows/Docker%20Buildx/badge.svg)
 
 https://en.wikipedia.org/wiki/Sliding_puzzle
 
