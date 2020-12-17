@@ -60,3 +60,7 @@ See localhost:3000
 ```bash
 yarn test
 ```
+
+## Notes
+
+There was a little more to sliding games then I thought. Biggest gotcha moment for me was that it turned out that not all boards are solvable. All in all I had a lot of fun making this game. Enjoy!
