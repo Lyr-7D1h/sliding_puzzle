@@ -11,15 +11,15 @@ const PuzzlePage = () => {
   // size defined as the length of one side of the board
   const [size, setSize] = useState(defaultValue);
   // (board, movesCount)
-  const [result, setResult] = useState((null, null));
+  const [result, setResult] = useState([null, null]);
   const [hasStarted, setHasStarted] = useState(false);
 
   const handleOnFinish = (board, movesCount) => {
-    setResult((board, movesCount));
+    setResult([board, movesCount]);
   };
 
   let Content;
-  if (result) {
+  if (result[0] && result[1]) {
     Content = <PuzzleResult board={result[0]} movesCount={result[1]} />;
   } else if (hasStarted) {
     Content = <PuzzleGame size={size} onFinish={handleOnFinish} />;

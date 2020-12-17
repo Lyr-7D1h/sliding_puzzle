@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import PuzzleEmptyBoard from "./PuzzleEmptyBoard";
 
 const minimal = 3;
-const maximal = 6;
+const maximal = 8;
 
 const marks = [
   {

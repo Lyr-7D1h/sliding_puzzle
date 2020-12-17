@@ -21,9 +21,53 @@ export const hasWon = (board) => {
   return true;
 };
 
+/** Naive way for getting inversion count */
+const getInversionCount = (array) => {
+  let count = 0;
+  for (let i = 0; i < array.length - 1; i += 1) {
+    for (let j = i + 1; j < array.length; j += 1) {
+      if (array[i] > array[j]) count += 1;
+    }
+  }
+  return count;
+};
+
+/** Find the row from bottom to top where the empty postion is */
+const findEmptyPosition = (board, size) => {
+  const emptyIndex = board.indexOf(null);
+  const row = Math.floor(emptyIndex / size);
+  return size - row;
+};
+
+/** Check if the board is solvable returns boolean
+ * https://en.wikipedia.org/wiki/15_puzzle#Solvability
+ * @param {number[]} board - An array of numbers with one null value
+ * @param {number} size - The size of the board
+ */
+export const isSolvable = (board, size) => {
+  const filteredBoard = board.filter((v) => v !== null);
+  if (size % 2 === 0) {
+    // if size is even
+    const inversionCount = getInversionCount(filteredBoard);
+    const emptyPostion = findEmptyPosition(board, size);
+
+    if (emptyPostion % 2 === 0) {
+      // if emptyPostion is EVEN and inversionCount is ODD
+      return inversionCount % 2 !== 0;
+    }
+
+    // if emptyPostion is ODD and inversionCount is EVEN
+    return inversionCount % 2 === 0;
+  }
+  // if size is odd
+  const inversionCount = getInversionCount(filteredBoard);
+  // if inversion count is even it is solvable
+  return inversionCount % 2 === 0;
+};
+
 /**
  * Create an array of `size` with non repeating random numbers and one empty slot
- * @param {number} itemsCount The size of the board
+ * @param {number} itemsCount - The size of the board
  */
 export const generateBoard = (size) => {
   if (size < 2) throw Error("Can't have board smaller than size 2");
@@ -46,6 +90,11 @@ export const generateBoard = (size) => {
 
   // Can't generate a winning board
   if (hasWon(board)) {
+    return generateBoard(size);
+  }
+
+  // Can't generate a board that isn't solvable
+  if (!isSolvable(board, size)) {
     return generateBoard(size);
   }
 
@@ -96,6 +145,7 @@ export const getAdjacenedIndexes = (board) => {
   return result;
 };
 
-// export const calculateScore = (board, movesCount) => {
-//   return { board, movesCount };
-// };
+export const calculateScore = (board, movesCount) => ({
+  board,
+  movesCount,
+});

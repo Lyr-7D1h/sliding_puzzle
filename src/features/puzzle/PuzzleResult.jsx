@@ -1,11 +1,12 @@
 import { React } from "react";
 import PropTypes from "prop-types";
-import { calculateScore } from "./board";
+// import { calculateScore } from "./board";
 
 const PuzzleResult = ({ board, movesCount }) => {
-  //   const score = calculateScore(board, movesCount);
+  // const score = calculateScore(board, movesCount);
+  const score = 200;
 
-  return <>Feedback</>;
+  return <>Your score: {score} </>;
 };
 
 PuzzleResult.propTypes = {
