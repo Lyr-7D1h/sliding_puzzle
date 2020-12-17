@@ -10,7 +10,7 @@ const defaultValue = 3;
 const PuzzlePage = () => {
   // size defined as the length of one side of the board
   const [size, setSize] = useState(defaultValue);
-  const [movesCount, setMovesCount] = useState(80);
+  const [movesCount, setMovesCount] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
 
   const handleOnReset = () => {
