@@ -2,6 +2,7 @@ import React from "react";
 import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 
+/** Wrapper around children given. Renders nav bar */
 const Page = ({ children }) => (
   <>
     <AppBar position="relative">

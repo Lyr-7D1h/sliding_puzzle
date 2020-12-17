@@ -145,7 +145,8 @@ export const getAdjacenedIndexes = (board) => {
   return result;
 };
 
-// Calculated by taking the avarage upper bound of optimal solutions
+// Calculated by taking the avarage upper bound of optimal solutions per size
+// 3 => 31, 4 => 80, 5 => 205
 // https://en.wikipedia.org/wiki/15_puzzle#Solvability
 const magicGrowthNumber = (205 / 80 + 80 / 31) / 2;
 // The optimal solution for a size of 1

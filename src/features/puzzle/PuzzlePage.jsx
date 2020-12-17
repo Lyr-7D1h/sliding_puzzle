@@ -4,17 +4,17 @@ import PuzzleGame from "./PuzzleGame";
 import PuzzleResult from "./PuzzleResult";
 import PuzzleSelectAmount from "./PuzzleSelectAmount";
 
-const defaultValue = 3;
+const defaultSize = 3;
 
 /** Entry point for the puzzle game */
 const PuzzlePage = () => {
   // size defined as the length of one side of the board
-  const [size, setSize] = useState(defaultValue);
+  const [size, setSize] = useState(defaultSize);
   const [movesCount, setMovesCount] = useState(null);
   const [hasStarted, setHasStarted] = useState(false);
 
   const handleOnReset = () => {
-    setSize(defaultValue);
+    setSize(defaultSize);
     setMovesCount(null);
     setHasStarted(false);
   };
@@ -34,7 +34,7 @@ const PuzzlePage = () => {
     Content = (
       <div style={{ paddingTop: "24px" }}>
         <PuzzleSelectAmount
-          defaultValue={defaultValue}
+          defaultValue={defaultSize}
           onClick={() => setHasStarted(true)}
           onChange={(value) => setSize(value)}
         />

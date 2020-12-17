@@ -32,7 +32,7 @@ const PuzzleCard = ({ value, clickable, style, onClick }) => {
               display: "inline-flex",
               alignItems: "center",
             }}
-            variant="h3"
+            variant="h4"
             align="center"
           >
             {value}

@@ -5,7 +5,7 @@ import PuzzleCard from "./PuzzleCard";
 
 /**
  * Display an empty board
- * @param {number} value - How big should the board be {value} x {value}
+ * @param {number} size - How big should the board be {size} x {size}
  */
 const PuzzleEmptyBoard = ({ size }) => {
   const cardSize = 100 / size;

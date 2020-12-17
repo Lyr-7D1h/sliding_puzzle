@@ -60,7 +60,7 @@ test("moves empty slot", () => {
   }
 });
 
-test("check for board to be solvable", () => {
+test("is board solvable", () => {
   expect(isSolvable([1, 8, 2, null, 4, 3, 7, 6, 5], 3)).toBe(true);
   expect(
     isSolvable([13, 2, 10, 3, 1, 12, 8, 4, 5, null, 9, 6, 15, 14, 11, 7], 4)
