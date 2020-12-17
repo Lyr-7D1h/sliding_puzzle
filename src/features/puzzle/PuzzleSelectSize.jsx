@@ -23,7 +23,7 @@ const marks = [
  * @param {function} onChange - Called on new value and return the power of the value (size of the board)
  * @param {function} onClick - Start the game
  */
-const PuzzleSelectAmount = ({ defaultValue, onChange, onClick }) => {
+const PuzzleSelectSize = ({ defaultValue, onChange, onClick }) => {
   const [value, setValue] = useState(defaultValue);
 
   const handleOnChange = (_event, newValue) => {
@@ -64,15 +64,15 @@ const PuzzleSelectAmount = ({ defaultValue, onChange, onClick }) => {
   );
 };
 
-PuzzleSelectAmount.propTypes = {
+PuzzleSelectSize.propTypes = {
   defaultValue: PropTypes.number,
   onChange: PropTypes.func,
   onClick: PropTypes.func,
 };
-PuzzleSelectAmount.defaultProps = {
+PuzzleSelectSize.defaultProps = {
   defaultValue: 3,
   onChange: null,
   onClick: null,
 };
 
-export default PuzzleSelectAmount;
+export default PuzzleSelectSize;
