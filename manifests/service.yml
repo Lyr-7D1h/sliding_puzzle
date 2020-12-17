@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sliding_puzzle-service
+  name: sliding-puzzle-service
 spec:
   type: ClusterIP
   selector:
-    app: sliding_puzzle
+    app: sliding-puzzle
   ports:
     - protocol: TCP
       port: 80

@@ -1,4 +1,5 @@
 # Sliding Puzzle
+
 ![Docker Buildx](https://github.com/Lyr-7D1h/sliding_puzzle/workflows/Docker%20Buildx/badge.svg)
 
 https://en.wikipedia.org/wiki/Sliding_puzzle
@@ -18,6 +19,10 @@ This is because I wanted consistent styling between all components and don't wan
 Most recommended and usefull test runner for React Applications.
 
 **prop-types** is used for validating input for react components. This ensures that inputs are what we expect and otherwise return errors, showing us where the problem lies.
+
+**Github Actions** is used for pushing multiple docker images build on different architectures using **Docker Buildx**.
+
+I added manifests files for hosting this application on a **Kubernetes** cluster.
 
 ## File Structure
 
