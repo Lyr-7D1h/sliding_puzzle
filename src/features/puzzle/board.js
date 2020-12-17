@@ -1,24 +1,55 @@
 /**
+ * Check if the board is ordered/won returns true if won else false.
+ * Null has to be at the end of the board
+ * @param {number[]} board - An array of numbers with one null value
+ */
+export const hasWon = (board) => {
+  // get board without null value
+  const slicedBoard = board.slice(0, board.length - 1);
+
+  let prevValue = -1;
+  for (let i = 0; i < slicedBoard.length; i += 1) {
+    const value = slicedBoard[i];
+
+    if (value === null) return false;
+    if (value > prevValue) {
+      prevValue = value;
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
  * Create an array of `size` with non repeating random numbers and one empty slot
  * @param {number} itemsCount The size of the board
  */
 export const generateBoard = (size) => {
+  if (size < 2) throw Error("Can't have board smaller than size 2");
+
   const itemsCount = size * size;
-  const result = new Array(itemsCount);
+  const board = new Array(itemsCount);
   let count = 1;
   while (count <= itemsCount) {
     const randomIndex = Math.floor(Math.random() * itemsCount);
     // if there is no value at randomIndex set value to the next count
-    if (!result[randomIndex]) {
+    if (!board[randomIndex]) {
       if (count === itemsCount) {
-        result[randomIndex] = null;
+        board[randomIndex] = null;
       } else {
-        result[randomIndex] = count;
+        board[randomIndex] = count;
       }
       count += 1;
     }
   }
-  return result;
+
+  // Can't generate a winning board
+  if (hasWon(board)) {
+    return generateBoard(size);
+  }
+
+  return board;
 };
 
 /**
@@ -64,3 +95,7 @@ export const getAdjacenedIndexes = (board) => {
     result.push(emptyIndex + boardRoot);
   return result;
 };
+
+// export const calculateScore = (board, movesCount) => {
+//   return { board, movesCount };
+// };
