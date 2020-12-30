@@ -2,6 +2,7 @@ import { Button, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { React } from "react";
 
+/** Piece of text with the description of the puzzle. And button/hook for going to the select size page. */
 const PuzzleDescription = ({ onClick }) => (
   <div style={{ textAlign: "center" }}>
     <Typography variant="h4">Sliding Puzzle</Typography>
