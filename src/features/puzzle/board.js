@@ -131,7 +131,7 @@ export const getAdjacenedIndexes = (board) => {
 
   // Top: can't be less than 0
   if (emptyIndex - boardRoot >= 0) result.push(emptyIndex - boardRoot);
-  // Left: can't be on the next row
+  // Left: can't be on the previous row
   // if emptyIndex starting from 1 - 1 is against left side (% boardRoot) ignore
   if (emptyIndex - 1 >= 0 && (emptyIndex + 1 - 1) % boardRoot !== 0)
     result.push(emptyIndex - 1);
